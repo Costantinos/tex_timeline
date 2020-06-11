@@ -1,0 +1,47 @@
+\documentclass[a4paper,12pt,openright,oneside]{book}
+\usepackage{xcolor}
+\usepackage{environ}
+\usepackage{tikz}
+
+\NewEnviron{elaboration}{
+	\par
+	\begin{tikzpicture}
+	\node[rectangle,minimum width=0.9\textwidth] (m) {\begin{minipage}{0.85\textwidth}\BODY\end{minipage}};
+	\draw[dashed] (m.south west) rectangle (m.north east);
+	\end{tikzpicture}
+}
+
+\newcommand\ytl[2]{\parbox[b]{0.3\linewidth}{\hfill{\color{red}\bfseries\sffamily #1}~$\cdot\cdots$~}\makebox[0pt][c]{$\bullet$}\vrule\quad
+	\parbox[c]{0.7\linewidth}{\vspace{7pt}\color{black}\raggedright\sffamily \begin{elaboration} #2 \end{elaboration}\\[1pt]}\\[-3pt]}
+
+
+\begin{document}
+Figure \ref{fig:timeline} depicts a high level overview of the significant milestones achieved to date, accompanied by the milestones currently undergoing to reach the final milestone (PhD defence) marking the completion of the PhD thesis.
+
+
+\begin{figure}[h]
+	\begin{minipage}{0.8\linewidth}
+		\fontsize{10pt}{0.7em}
+		\color{gray}
+		\rule{1.2\linewidth}{1pt}
+		\ytl{9/2013}{\bf{PhD Starting point}}
+		\ytl{1/2014 - 10/2015}{{\bf Infosys '17}\\ \emph{Crowdsourcing Emergency Data in Non-Operational Cellular Networks}}
+		\ytl{11/2014 - 8/2015}{{\bf TKDE '16}\\ \emph{Distributed In-Memory Processing of All k Nearest Neighbor Queries}}
+		\ytl{2/2015}{{\bf Mobisocial '15}\\ \emph{Rayzit: An Anonymous and Dynamic Crowd Messaging Architecture}}
+    	\ytl{12/2015}{{\bf PhD Comprehensive Exam}}
+		\ytl{1/2016}{{\bf ICDE '16}\\ \emph{Distributed In-Memory Processing of All k Nearest Neighbor Queries (Extended Abstract)}}
+		\ytl{10/2016}{{\bf ICDE '17}\\ \emph{SPATE: Compacting and Exploring Telco Big Data}}
+		\ytl{10/2016}{{\bf ICDE '17}\\ \emph{Efficient Exploration of Telco Big Data with Compression and Decaying}}
+		\ytl{8/2017}{{\bf BIRTE '17}\\ \emph{Towards Real-Time Road Traffic Analytics using Telco Big Data}}
+		\ytl{\color{orange}12/2017}{\bf PhD Thesis proposal}
+		\ytl{\color{teal}1/2018}{{\bf MDM '18}\\ \emph{Predicting Call Drops by applying Deep Learning on Telco Big Data}}
+		\ytl{\color{teal}1/2018}{{\bf LNBIP}\\ \emph{Real-time road traffic analytics using Telco Big Data}}
+		\ytl{\color{teal}5/2018}{\bf PhD Defense}
+		\bigskip
+		\rule{1.2\linewidth}{1pt}%
+	\end{minipage}%
+	\caption{Timeline of PhD Thesis.}
+	\label{fig:timeline}
+\end{figure}
+
+\end{document}
